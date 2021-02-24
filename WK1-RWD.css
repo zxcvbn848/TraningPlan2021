@@ -1,32 +1,32 @@
 body{
     font-size: 20px; background-color: ivory;
-    margin: 0px; padding: 0px;
+    margin: 0px; padding: 0px; /* 為了使色塊緊貼邊緣 */
 }
 nav{
     display: flex;
 }
-nav>.title{
+title{
     flex: none; width: 150px;
     font-weight: bold;
     padding: 10px;
     /* background-color: rgb(252, 252, 253); */
 }
-nav>.nothing{
+.nothing{
     flex: auto;
 }
-nav>.item{
+.item{
     display:flex;
     flex: none; width: 300px;
     justify-content: flex-end;
     padding: 10px;  
     /* background-color: blue; */
 }
-nav>.item>.item-list{
+.item-list{
     display: inline-block;
     text-align: right;
     margin-left: 20px;
 }
-nav>.item>.item-icon{
+.item-icon{
     display: none;
     padding: 5px;
 }
@@ -110,17 +110,17 @@ img{
     }
 }
 @media (max-width: 600px) {
-    nav>.item>.item-list{
+    .item-list{
         display: none;
         text-align: right;
     }  
-    nav>.item>.item-icon{
+    .item-icon{
         display: flex;
         position: relative; left: 0px; top: 0px;
         height: 20px; 
         width: 30px;
     }  
-    nav>.item>.item-icon>img{
+    .item-icon>img{
         height: 100%; 
         width: 100%;
     }
