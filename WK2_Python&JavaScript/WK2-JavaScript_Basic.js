@@ -44,15 +44,15 @@ avg({
 // 要求三：演算法
 // 找出至少包含兩筆整數的列表 (Python) 或陣列 (JavaScript) 中，兩兩數字相乘後的最大值。
 function maxProduct(nums) {
-    let maxProduct = 0;
+    let productArray = [];
+
     for (let i = 0; i < nums.length; i++) {
         for (let j = i + 1; j < nums.length; j++) {
             let product = nums[i] * nums[j];
-            if (product > maxProduct) {
-                maxProduct = product;
-            }
+            productArray.push(product);
         }
     }
+    let maxProduct = Math.max(...productArray);
     console.log(maxProduct)  ;
 }
 
