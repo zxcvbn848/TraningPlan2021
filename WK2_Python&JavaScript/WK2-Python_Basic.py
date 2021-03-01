@@ -5,6 +5,7 @@ def calculate(min, max):
     for x in range(min, max + 1):
         sum += x
     print(sum)
+    
 calculate(1, 3) # 要能夠計算 p1 + 2 + 3，最後印出 6
 calculate(4, 8) # 要能夠計算 4 + 5 + 6 + 7 + 8，最後印出 30
 # ===============================
@@ -46,6 +47,7 @@ def maxProduct(nums):
             if product > maxProduct:
                 maxProduct = product
     print(maxProduct)
+
 maxProduct([5, 20, 2, 6]) # 得到 120 因為 20 和 6 相乘得到最大值
 maxProduct([10, -20, 0, 3]) # 得到 30 因為 10 和 3 相乘得到最大值
 # ===============================
@@ -59,6 +61,7 @@ def twoSum(nums, target):
             twoSum = nums[i] + nums[j]
             if twoSum == target:
                 return [i, j]
+
 result = twoSum([2, 11, 7, 15], 9)
 print(result) # show [0, 2] because nums[0] + nums[2] is 9
 # ===============================
@@ -76,6 +79,7 @@ def maxZeros(nums):
             lengthList.append(length)
     maxlength = max(lengthList)
     print(maxlength)
+
 maxZeros([0, 1, 0, 0]) # 得到 2
 maxZeros([1, 0, 0, 0, 0, 1, 0, 1, 0, 0]) # 得到 4
 maxZeros([1, 1, 1, 1]) # 得到 0

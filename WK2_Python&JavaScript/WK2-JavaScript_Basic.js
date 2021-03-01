@@ -22,6 +22,7 @@ function avg(data) {
     let average = salarySum / data.count;
     console.log(average);
 }
+
 avg({
     'count': 3,
     'employees': [
@@ -70,18 +71,29 @@ function twoSum(nums, target) {
         }
     }
 }
+
 result = twoSum([2, 11, 7, 15], 9);
 console.log(result); // show [0, 2] because nums[0] + nums[2] is 9
 // ===============================
 // 要求五 ( Optional )：演算法
-// 給定只會包含 0 或 1 兩種數字的列表 (Python) 或陣列 (JavaScript)，計算連續出現 0 的最大
-// 長度。
-/*
+// 給定只會包含 0 或 1 兩種數字的列表 (Python) 或陣列 (JavaScript)，計算連續出現 0 的最大長度。
 function maxZeros(nums) {
-
+    let length = 0;
+    let lengthArray = [];
+    for (let num of nums) {
+        if (num !== 0) {
+            length = 0;
+            lengthArray.push(length);
+        }
+        else if (num === 0) {
+            length += 1;
+            lengthArray.push(length);
+        }
+    }
+    let maxlength = Math.max(...lengthArray);
+    console.log(maxlength);
 }
 
 maxZeros([0, 1, 0, 0]) // 得到 2
 maxZeros([1, 0, 0, 0, 0, 1, 0, 1, 0, 0]) // 得到 4
 maxZeros([1, 1, 1, 1]) // 得到 0 
-*/
