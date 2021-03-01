@@ -53,7 +53,7 @@ function maxProduct(nums) {
         }
     }
     let maxProduct = Math.max(...productArray);
-    console.log(maxProduct)  ;
+    console.log(maxProduct);
 }
 
 maxProduct([5, 20, 2, 6]); // 得到 120 因為 20 和 6 相乘得到最大值
