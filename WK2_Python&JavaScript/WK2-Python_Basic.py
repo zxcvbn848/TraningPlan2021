@@ -63,12 +63,19 @@ result = twoSum([2, 11, 7, 15], 9)
 print(result) # show [0, 2] because nums[0] + nums[2] is 9
 # ===============================
 # 要求五 ( Optional )：演算法
-# 給定只會包含 0 或 1 兩種數字的列表 (Python) 或陣列 (JavaScript)，計算連續出現 0 的最大
-# 長度。
-"""
+# 給定只會包含 0 或 1 兩種數字的列表 (Python) 或陣列 (JavaScript)，計算連續出現 0 的最大長度。
 def maxZeros(nums):
-
+    length = 0
+    lengthList = []
+    for i in range(len(nums)):
+        if nums[i] != 0:
+            length = 0
+            lengthList.append(length)
+        elif nums[i] == 0:
+            length += 1 
+            lengthList.append(length)
+    maxlength = max(lengthList)
+    print(maxlength)
 maxZeros([0, 1, 0, 0]) # 得到 2
 maxZeros([1, 0, 0, 0, 0, 1, 0, 1, 0, 0]) # 得到 4
 maxZeros([1, 1, 1, 1]) # 得到 0
-"""
