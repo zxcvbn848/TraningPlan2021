@@ -18,7 +18,7 @@ fetch(src)
         let imageUrl;
         let imageUrlArray = [];
         for (let i = 0; i < scenicArea.length; i++) {
-            imageUrl = scenicArea[i].file.split('.jpg', 2)[0] + '.jpg';
+            imageUrl = 'http://www.' + scenicArea[i].file.split('http://www.')[1];
             imageUrlArray.push(imageUrl);
         }
 

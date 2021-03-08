@@ -10,8 +10,8 @@ with open("data.txt", "w", encoding="utf-8") as file:
         stitle = sa["stitle"]
         longitude = sa["longitude"]
         latitude = sa["latitude"]
-        imgUrl = sa["file"].split(".jpg", 1)[0]
+        imgUrl = sa["file"].split("http://www.")[1]
         
-        info = f'{stitle}, {longitude}, {latitude}, {imgUrl}.jpg'
+        info = f'{stitle}, {longitude}, {latitude}, http://www.{imgUrl}'
         file.write(info + "\n")
 
