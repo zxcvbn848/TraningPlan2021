@@ -16,7 +16,7 @@ with open("data.txt", "w", encoding="utf-8") as file:
         latitude = sa["latitude"]
         imgUrl = sa["file"].split(".jpg", 1)[0]
         
-        info = f'{stitle}, {longitude}, {latitude}, {imgUrl}.jpg'
+        info = f'{stitle}, {longitude}, {latitude}, {imgUrl}.jpg+'
         print(info)
         file.write(info + "\n")
 
