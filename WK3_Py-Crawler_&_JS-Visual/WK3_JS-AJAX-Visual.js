@@ -51,7 +51,7 @@ function loadMore() {
             return response.json(); 
         })
         .then(function(result) {
-            count = count + 8;
+            count += 8;
 
             let content = document.getElementsByClassName('content')[0];
             
@@ -82,7 +82,6 @@ function loadMore() {
                 
                 boxText.appendChild(textContent);
                 box.appendChild(boxText);
-                
             }
             
             let boxes = document.getElementsByClassName('box');
