@@ -7,7 +7,6 @@ nav{
 }
 .title{
     flex: none; width: 150px;
-    font-weight: bold;
     padding: 10px; 
 }
 .nothing{
@@ -15,14 +14,14 @@ nav{
 }
 .item{
     display: flex;
-    flex: none; width: 300px;
+    flex: none; width: 400px;
     justify-content: flex-end;
     padding: 10px;  
 }
 .item-list{
     display: inline-block;
-    text-align: right;
-    margin-left: 20px;
+    text-align: center;
+    margin-left: 20px; margin-right: 20px;
 }
 .item-icon{
     display: none; 
@@ -30,6 +29,7 @@ nav{
 }
 .myhome{
     font-size: 40px; text-align: center; line-height:300px;
+    font-weight: bold;
     position: relative; left: 0px; top: 0px;
     height:300px; background-color: rgba(176, 247, 188, 0.979);
     margin: 0px;
