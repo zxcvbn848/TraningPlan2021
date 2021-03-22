@@ -37,9 +37,9 @@
 ![image](https://user-images.githubusercontent.com/70138536/111930240-65878b80-8af3-11eb-9b8e-b5e380294c69.png)
 
 # 5.使用 SELECT 指令取得 user 資料表中第 2 ~ 4 共三筆資料，並按照 time 欄位，由近到遠排序。
-# SELECT * FROM user WHERE id BETWEEN 2 AND 4 ORDER BY time DESC;
+# SELECT * FROM user ORDER BY time DESC LIMIT 1,3;
 
-![image](https://user-images.githubusercontent.com/70138536/111930288-8a7bfe80-8af3-11eb-8766-1252c8221110.png)
+![image](https://user-images.githubusercontent.com/70138536/111992359-466b1700-8b50-11eb-975c-e72f8312eede.png)
 
 # 6.使用 SELECT 指令取得欄位 username 是 ply 的使用者資料。
 # SELECT * FROM user WHERE username = 'ply';
