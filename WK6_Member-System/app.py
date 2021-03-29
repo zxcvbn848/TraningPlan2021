@@ -1,7 +1,7 @@
 
-from flask import Flask, request, render_template, redirect, session, url_for, flash
+from flask import Flask, request, render_template, redirect, session, url_for
 from datetime import timedelta
-import mysql.connector
+from mysql_connect import websiteDB, webCursor, selectUser, insertUser
 import os
 
 app = Flask(__name__, static_folder="static", static_url_path="/static")
@@ -9,49 +9,11 @@ app = Flask(__name__, static_folder="static", static_url_path="/static")
 app.config["SECRET_KEY"] = os.urandom(24)
 app.config["PERMANENT_SESSION_LIFETIME"] = timedelta(days = 1)
 
-websiteDB = mysql.connector.connect(
-    host = "localhost",
-    port = 3306,
-    user = "root",
-    password = "Ilovedream303196",
-    database = "website",
-    charset = "utf8"
-)
-
-webCursor = websiteDB.cursor()
-
-def selectUser(inputUser):
-    webCursor.execute(
-    """
-    SELECT name, username, password
-    FROM user
-    WHERE username = %s
-    """
-    , (inputUser, ))
-
-    webResult = webCursor.fetchone()
-    if (webResult):
-        userData = dict(zip(webCursor.column_names, webResult))
-        return userData
-    else:
-        return None
-
-def insertUser(name, username, password):
-    sql_cmd = """
-            INSERT INTO user(name, username, password) 
-            VALUES (%s, %s, %s)
-        """
-    value = (name, username, password)
-    webCursor.execute(sql_cmd, value)
-
-    websiteDB.commit()
-
 @app.route("/")
 def index():
     if "user" in session:
         return redirect(url_for("member"))
-    else:
-        return render_template("index.html")
+    return render_template("index.html")
 
 @app.route("/signup", methods=["POST"])
 def checkSignup():
@@ -59,42 +21,35 @@ def checkSignup():
     username = request.form["username"]
     password = request.form["password"]
 
-    signupUser = selectUser(username)
-    if (signupUser != None):
-        usernameData = signupUser["username"]
-    else:
-        usernameData = ""
-   
-    if (username != usernameData and name != "" and password != ""): 
-        insertUser(name, username, password)
-        return redirect(url_for("index"))
-
-    if (username != "" and username == usernameData):
-        message = f"帳號 {username} 已經被註冊"
-        return redirect(url_for("error", message = message))
-
     if (username == "" or name == "" or password == ""):
         message = "姓名、帳號或密碼皆不得為空"
         return redirect(url_for("error", message = message))
+
+    signupUser = selectUser(username)
+
+    if (signupUser and username != ""):
+        message = f"帳號 { username } 已經被註冊"
+        return redirect(url_for("error", message = message))
+
+    if (signupUser == None and name != "" and password != ""):
+        insertUser(name, username, password)
+        return redirect(url_for("index"))
 
 @app.route("/signin", methods=["POST"])
 def signin():
     username = request.form["username"] 
     password = request.form["password"]
 
-    if (username != "" and password != ""):
-        signinUser = selectUser(username)
-    else:
-        return redirect(url_for("index"))
+    if (username == "" or password == ""):
+        message = "帳號或密碼皆不得為空"
+        return redirect(url_for("error", message = message))
+
+    signinUser = selectUser(username)
 
     if signinUser:
         name = signinUser["name"]
         usernamePass = signinUser["username"]
         passwordPass = signinUser["password"]
-    else:
-        name = ""
-        usernamePass = ""
-        passwordPass = ""
 
     if (username == usernamePass and password == passwordPass): 
         session["user"] = name 
@@ -114,11 +69,11 @@ def member():
 @app.route("/error/")
 def error():
     message = request.args["message"]
-    if "user" not in session:
-        return render_template("error.html", message = message)
-
     if "user" in session:
         return redirect(url_for("member"))
+    else:
+        return render_template("error.html", message = message)
+
 
 @app.route("/signout", methods=["GET"])
 def signout():
