@@ -65,7 +65,7 @@ CREATE TABLE `user` (
   `password` varchar(255) NOT NULL,
   `time` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=12 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=13 DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -74,7 +74,7 @@ CREATE TABLE `user` (
 
 LOCK TABLES `user` WRITE;
 /*!40000 ALTER TABLE `user` DISABLE KEYS */;
-INSERT INTO `user` VALUES (1,'丁滿','ply','ply','2021-03-22 09:37:54'),(2,'Zack','asd','asd123','2021-03-22 09:43:39'),(3,'Andy','qwe','qwe456','2021-03-22 09:43:47'),(4,'Gina','tyu','tyu789','2021-03-22 09:43:53'),(5,'Kyle','ghj','ghj963','2021-03-22 09:44:02'),(6,'Allen','allen123','allen456','2021-03-29 11:35:25'),(7,'Wind','wind654','wind987','2021-03-29 11:41:12'),(8,'重鈞','andy888','andy321','2021-03-29 11:41:42'),(9,'custom','custom123','sustom456','2021-03-29 13:54:32'),(10,'Locus','locus520','locus555','2021-03-29 14:32:14'),(11,'Apple','appleman222','apple555','2021-03-29 15:56:48');
+INSERT INTO `user` VALUES (1,'丁滿','ply','ply','2021-03-22 09:37:54'),(2,'Zack','asd','asd123','2021-03-22 09:43:39'),(3,'Andy','qwe','qwe456','2021-03-22 09:43:47'),(4,'Gina','tyu','tyu789','2021-03-22 09:43:53'),(5,'Kyle','ghj','ghj963','2021-03-22 09:44:02'),(6,'Allen','allen123','allen456','2021-03-29 11:35:25'),(7,'Wind','wind654','wind987','2021-03-29 11:41:12'),(8,'重鈞','andy888','andy321','2021-03-29 11:41:42'),(9,'custom','custom123','sustom456','2021-03-29 13:54:32'),(10,'Locus','locus520','locus555','2021-03-29 14:32:14'),(11,'Apple','appleman222','apple555','2021-03-29 15:56:48'),(12,'John','john780507','jonh0507','2021-03-29 19:22:47');
 /*!40000 ALTER TABLE `user` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
@@ -87,4 +87,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2021-03-29 16:28:33
+-- Dump completed on 2021-03-29 19:27:32

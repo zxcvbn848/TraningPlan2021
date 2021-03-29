@@ -1,7 +1,7 @@
 
 from flask import Flask, request, render_template, redirect, session, url_for
 from datetime import timedelta
-from mysql_connect import websiteDB, webCursor, selectUser, insertUser
+from mysql_connect import selectUser, insertUser
 import os
 
 app = Flask(__name__, static_folder="static", static_url_path="/static")
@@ -25,14 +25,13 @@ def checkSignup():
         message = "姓名、帳號或密碼皆不得為空"
         return redirect(url_for("error", message = message))
 
-    signupUser = selectUser(username)
+    signupUser = selectUser(username = username)
 
-    if (signupUser and username != ""):
+    if signupUser:
         message = f"帳號 { username } 已經被註冊"
         return redirect(url_for("error", message = message))
-
-    if (signupUser == None and name != "" and password != ""):
-        insertUser(name, username, password)
+    else:
+        insertUser(name = name, username = username, password = password)
         return redirect(url_for("index"))
 
 @app.route("/signin", methods=["POST"])
@@ -44,15 +43,10 @@ def signin():
         message = "帳號或密碼皆不得為空"
         return redirect(url_for("error", message = message))
 
-    signinUser = selectUser(username)
+    signinUser = selectUser(username = username, password = password)
 
     if signinUser:
-        name = signinUser["name"]
-        usernamePass = signinUser["username"]
-        passwordPass = signinUser["password"]
-
-    if (username == usernamePass and password == passwordPass): 
-        session["user"] = name 
+        session["user"] = signinUser["name"] 
         return redirect(url_for("member"))
     else:
         message = "帳號或密碼錯誤"
