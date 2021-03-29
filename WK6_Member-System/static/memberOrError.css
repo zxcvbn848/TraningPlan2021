@@ -1,0 +1,32 @@
+body{
+    margin: 0px;
+}
+
+.title{
+    display: flex; justify-content: center; align-items: center;
+    height: 200px;
+    color: white; 
+    background-color: rgb(14, 14, 99) ;
+}
+.title>.text{
+    font-size: 50px; font-weight: bold;
+}
+
+.message{
+    width: 1000px;
+    color: black; 
+    position: relative; left: 50%; transform: translate(-50%);
+    display: flex; justify-content: center; flex-wrap: wrap;
+    padding: 10px;
+    margin-top: 80px;
+    /* border: 1px solid black; */
+}
+.message>.text{
+    width: 100%;
+    font-size: 40px; text-align: center;
+}
+
+a{
+    font-size: 40px;
+    margin-top: 30px; margin-bottom: 10px;
+}

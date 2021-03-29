@@ -1,0 +1,68 @@
+form, 
+.form-content,
+.form-items,
+.form-title{
+    box-sizing: border-box;
+}
+body{
+    margin: 0px;
+}
+
+.title{
+    display: flex; justify-content: center; align-items: center;
+    height: 200px;
+    color: white; 
+    background-color: rgb(14, 14, 99) ;
+}
+.title>.text{
+    font-size: 50px; font-weight: bold;
+}
+
+form{
+    display: flex; flex-wrap: wrap; 
+    justify-content: center; align-items: stretch;
+    width: 600px; 
+    position: relative; left: 50%; transform: translate(-50%);
+    margin-top: 40px; margin-bottom: 40px;
+    border: 3px ridge black;
+    background-color: hsl(197, 100%, 70%);
+}
+
+.form-content{
+    width: 100%; 
+    line-height: 40px;
+}
+.login{
+    display: flex; justify-content: center; align-items: center;
+    padding: 20px;
+    position: relative; left: 50%; transform: translate(-50%);
+    border: 3px ridge black;
+    background-color: blue;
+}
+.login>.text{
+    color: white;
+    font-size: 40px; font-weight: bold;
+}
+.form-title{
+    float: left;
+    width: 35%;
+    margin-right: 10px; margin-top: 20px;
+}
+.form-items{
+    float: left;
+    width: 60%;
+    margin-left: 10px; margin-top: 20px;
+}
+.alignRight{
+    text-align: right;
+    margin-top: 2px;
+}
+input, label{
+    font-size: 30px; width: 80%;
+}
+button{
+    width: 70px; height: 40px;
+    font-size: 20px; 
+    position: relative; top: 20px;
+    margin-bottom: 40px;
+}

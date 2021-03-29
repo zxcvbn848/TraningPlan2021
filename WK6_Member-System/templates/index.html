@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Member Verification</title>
+    <link href="{{ url_for('static', filename='index.css') }}" rel="stylesheet" type="text/css" media="all">
+    <!-- <link href="index.css" rel="stylesheet" type="text/css" media="all"> -->
+</head>
+<body>
+    <div class="title">
+        <div class="text">歡迎光臨，請註冊登入系統</div>
+    </div>
+    <form action="/signup" method="POST">
+        <div class="form-content">
+            <div class="login">
+                <div class="text">
+                    註冊系統
+                </div>
+            </div>
+            <div class="form-title">
+                <div class="alignRight">
+                    <label for="name">姓名</label><br/>
+                    <label for="usernameSignup">帳號</label><br/>
+                    <label for="passwordSignup">密碼</label><br/>
+                </div>
+            </div>
+            <div class="form-items">
+                <input type="text" name="name" id="name" placeholder="請輸入註冊姓名" value=""/><br/>
+                <input type="text" name="username" id="usernameSignup" placeholder="請輸入註冊帳號" value=""/><br/>
+                <input type="password" name="password" id="passwordSignup" placeholder="請輸入註冊密碼" value=""/><br/>
+            </div>
+        </div>
+        <button>註冊</button>
+    </form>
+    <form action="/signin" method="POST">
+        <div class="form-content">
+            <div class="login">
+                <div class="text">
+                    登入系統
+                </div>
+            </div>
+            <div class="form-title">
+                <div class="alignRight">
+                    <label for="usernameSignin">帳號</label><br/>
+                    <label for="passwordSignin">密碼</label><br/>
+                </div>
+            </div>
+            <div class="form-items">
+                <input type="text" name="username" id="usernameSignin" placeholder="請輸入帳號" value=""/><br/>
+                <input type="password" name="password" id="passwordSignin" placeholder="請輸入密碼" value=""/><br/>
+            </div>
+        </div>
+        <button>登入</button>
+    </form>
+</body>
+</html>
