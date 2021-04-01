@@ -1,0 +1,28 @@
+
+{% extends 'base.html' %}
+
+{% block title %}Member{% endblock %}
+
+{% block static %}
+<!-- <link href="{{ url_for('static', filename='css/memberOrError.css') }}" rel="stylesheet" type="text/css" media="all"> -->
+<link href="../static/css/memberOrError.css" rel="stylesheet" type="text/css" media="all">
+{% endblock %}
+
+{% block content %}
+<div class="title">
+    <div class="text">歡迎光臨，這是會員頁</div>
+</div>
+<div class="message">
+    <div class="text">{{ name }}，歡迎登入系統</div>
+</div>
+<hr/>
+<div class="href">
+    <div class="text">Go to</div>
+    <input type="button" onclick="location.href='/modal'" value="Modal"/>
+    <input type="button" onclick="location.href='/select'" value="Select"/>
+</div>
+<hr/>
+<div class="href">
+    <a href="/signout" method="GET">登出系統</a>
+</div>
+{% endblock %}

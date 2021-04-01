@@ -1,0 +1,14 @@
+body{
+    margin: 0px;
+}
+
+.message{
+    width: 500px;
+    color: black; 
+    position: relative; left: 50%; transform: translate(-50%);
+    display: flex; justify-content: center; flex-wrap: wrap;
+    margin-top: 80px;
+}
+.message>.text{
+    font-size: 40px;
+}

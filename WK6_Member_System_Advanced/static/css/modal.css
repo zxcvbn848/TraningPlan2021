@@ -1,0 +1,126 @@
+*, *::after, *::before {
+	box-sizing: border-box;
+}
+
+body{
+	margin: 0px;
+}
+
+.title{
+	display: flex; justify-content: center; align-items: center;
+	height: 200px;
+	color: white; 
+	background-color: rgb(14, 14, 99);
+	margin-bottom: 50px;
+}
+.title>.text{
+	font-size: 50px; font-weight: bold;
+}
+
+.open-button, .goBack-member{
+	width: 1000px;
+	max-width: 70%;
+	display: flex; justify-content: center; align-items: center; flex-wrap: wrap;
+	position: relative; left: 50%; transform: translate(-50%);
+	/* border: 2px ridge black; */
+}
+
+.open-button button, .goBack-member input{
+	font-size: 30px;
+	padding: 10px;
+}
+
+.modal {
+	position: fixed;
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%, -50%) scale(0);
+	transition: 200ms ease-in-out;
+	border: 1px solid black;
+	border-radius: 10px;
+	z-index: 10;
+	background-color: white;
+	width: 600px;
+	height: 800px;
+	max-width: 80%;
+	max-height: 80%;
+}
+
+.modal.active {
+	transform: translate(-50%, -50%) scale(1);
+}
+
+.modal-header {
+	max-height: 15%;
+	padding: 10px 15px;
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	border-bottom: 1px solid black;
+}
+
+.modal-header .modal-title {
+	font-size: 1.25rem;
+	font-weight: bold;
+}
+
+.modal-header .close-button {
+	cursor: pointer;
+	border: none;
+	outline: none;
+	background: none;
+	font-size: 2rem;
+	font-weight: bold;
+}
+
+.modal-body {
+	padding: 10px 15px;
+	max-width: 100%;
+	max-height: 85%;
+	overflow-y: auto;
+}
+
+.modal-body .content{
+	display: flex; justify-content: flex-start; align-items: center; flex-wrap: wrap;
+}
+
+.modal-body .text {
+	font-weight: bold;
+	height: 30px;
+	/* border: 1px solid black; */
+}
+
+.modal-body .contentText{
+	line-height: 30px;
+	text-indent: 2em;
+}
+
+#overlay {
+	position: fixed;
+	opacity: 0;
+	transition: 200ms ease-in-out;
+	top: 0;
+	left: 0;
+	right: 0;
+	bottom: 0;
+	background-color: rgba(0, 0, 0, .5);
+	pointer-events: none;
+}
+
+#overlay.active {
+	opacity: 1;
+	pointer-events: all;
+}
+
+hr {
+	position: relative; left: 50%; transform: translate(-50%);
+	width: 1000px;
+	max-width: 80%;
+	margin: 30px 20px 30px 0px;
+}
+
+.modal-body hr {
+	width: 100%;
+	max-width: 100%;
+	margin: 5px 0px 5px 0px;
+}
