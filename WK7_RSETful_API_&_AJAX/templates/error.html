@@ -1,0 +1,21 @@
+
+{% extends 'base.html' %}
+
+{% block title %}Error{% endblock %}
+
+{% block static %}
+<!-- <link href="{{ url_for('static', filename='css/memberOrError.css') }}" rel="stylesheet" type="text/css" media="all"> -->
+<link href="../static/css/memberOrError.css" rel="stylesheet" type="text/css" media="all">
+{% endblock %}
+
+{% block content %}
+<div class="title">
+    <div class="text">失敗頁面</div>
+</div>
+<div class="message">
+    <div class="text">{{ message }}</div>
+</div>
+<div class="href">
+    <a href="/" method="GET">回首頁</a>
+</div>
+{% endblock %}

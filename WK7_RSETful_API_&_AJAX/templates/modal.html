@@ -1,0 +1,64 @@
+{% extends 'base.html' %}
+
+{% block title %}Modal{% endblock %}
+
+{% block static %}
+<!-- <link href="{{ url_for('static', filename='css/modal.css') }}" rel="stylesheet" type="text/css" media="all"> -->
+<link href="../static/css/modal.css" rel="stylesheet">
+<!-- <script defer src="{{ url_for('static', filename='js/modal.js') }}"></script> -->
+<script defer src="../static/js/modal.js"></script>
+{% endblock %}
+
+{% block content %}
+<div class="title">
+	<div class="text">歡迎光臨，這是 Modal 頁面</div>
+</div>
+<div class="open-button"><button data-modal-target="#modal">Open Modal</button></div>
+<hr>
+<div class="goBack-member"><input type="button" onclick="location.href='/member/'" value="Go Back Member"/></div>
+<div class="modal" id="modal">
+	<div class="modal-header">
+		<div class="modal-title">Book Popup Modal</div>
+		<button data-close-button class="close-button">&times;</button>
+	</div>
+	<div class="modal-body">
+		<div class="content">
+			<div class="text">書名：【軍團：布蘭登．山德森精選集II】</div>
+			<hr>
+			<div class="text">作者：布蘭登．山德森</div>
+			<hr>
+			<div class="text">試讀內容：</div>
+			<div class="contentText">
+				<div>「她的目的是什麼？」艾薇今天用了看起來很危險的髮簪，梳起一個圓髻。她的雙手抱胸，在桌邊不停地走來走去。</div>
+				<div>我試著不去理會她，但是不太成功。</div>
+				<div>「或許是想釣個金龜婿？」托比亞斯拉了張椅子坐到我身邊。他是個有著深色皮膚的優雅男子，一如既往穿著沒有領帶的休閒西裝，十分自在地融入這個充滿水晶燈光與鋼琴樂音的場所。</div>
+				<div>「很多女人都是看上史蒂芬的財產，而不是他的聰明才智。」</div>
+				<div>「她是地產大亨的女兒，」艾薇不認同地揮揮手。「光是呼吸就很有錢。」她在桌邊彎下腰來，端詳和我共進晚餐的女伴。「說到呼吸，她的鼻子看來跟胸部一樣下了不少工夫。」</div>
+				<div>我擠出笑容，試著將注意力維持在女伴身上。我已經很習慣艾薇與托比亞斯的存在，也信任他們。</div>
+				<div>但要是你的幻覺如影隨行地跟著你，要享受約會可真是他媽的困難。</div>
+				<div>「所以說……」我的約會對象絲薇雅（Sylvia）靦腆地微笑。「馬爾康跟我說你是偵探？」</div>
+				<div>絲薇雅穿著黑色緊身洋裝，身上的鑽石配件光采奪目。我跟她有個太過擔心我的共同好友，因此有過一面之緣。我很好奇絲薇雅在同意進行這場盲目約會之前，對我做了多少研究。</div>
+				<div>「偵探？」我說。「對，可以這麼說。」</div>
+				<div>「我就說嘛！」她咯咯笑著回應我。</div>			
+				<div>「老實說，」我對絲薇雅說。「『偵探』兩字可能給妳錯誤的印象，我只不過是幫人們處理特定問題而已。」</div>			
+				<div>「就跟蝙蝠俠一樣！」絲薇雅說。</div>			
+				<div>托比亞斯聞言忍不住噴出口中的檸檬汁，果汁在桌布上濺下污點—─但絲薇雅當然看不到。</div>			
+				<div>「跟妳說的……不太一樣。」我說。</div>			
+				<div>「我開玩笑的。」絲薇雅又喝了一口酒。我們才剛坐下，她就喝了不少。「你都處理什麼樣的問題？比如，電腦問題、保安問題、邏輯問題？」</div>			
+				<div>「是的。三種都有，還有其他領域。」</div>			
+				<div>「我……覺得這些不像是特定的問題。」絲薇雅說。</div>			
+				<div>她說對了。「很難解釋。我是專家，但是專精許多領域。」</div>			
+				<div>「像是？」</div>			
+				<div>「什麼都行，要視問題而定。」</div>			
+				<div>「她似乎在隱瞞什麼。」艾薇的雙手仍然交叉在胸前。「史蒂夫，我告訴你，她別有目的。」</div>			
+				<div>「每個人都有。」我回答。</div>			
+				<div>「你說什麼？」絲薇雅皺著眉頭發問，侍者在此時藉著手上的布巾從桌上拿走了沙拉盤。</div>			
+				<div>「沒事。」</div>			
+				<div>絲薇雅靠上椅子，又喝了一口酒。「你在跟他們講話，對吧？」</div>			
+				<div>「所以妳研究過我。」</div>						
+			</div>
+		</div>
+	</div>
+</div>
+<div id="overlay"></div>
+{% endblock %}
