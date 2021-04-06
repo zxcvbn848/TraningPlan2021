@@ -12,7 +12,7 @@ function searchData() {
          return response.json();
       })
       .then((result) => {
-         textUsername.childNodes[0].nodeValue = "";
+         // textUsername.childNodes[0].nodeValue = "";
 
          let userData = result["data"];
          // console.log(userData);
@@ -54,7 +54,7 @@ function updateData() {
       .then((result) => {
          console.log(result);
 
-         textName.childNodes[0].nodeValue = "";
+         // textName.childNodes[0].nodeValue = "";
 
          let updateSuccess = result["ok"];
          let updateFailed = result["error"];
@@ -63,13 +63,13 @@ function updateData() {
 
          if (updateSuccess === "true") {
             successOrNot = '更新成功';
+            textWelcome.childNodes[0].nodeValue = `${name}，歡迎登入系統`;
          }
          if (updateFailed === "true") {
             successOrNot = '更新失敗';
          }
 
          textName.childNodes[0].nodeValue = successOrNot;
-         textWelcome.childNodes[0].nodeValue = `${name}，歡迎登入系統`;
       }).catch((err) => {
          console.log('錯誤', err);
       })
