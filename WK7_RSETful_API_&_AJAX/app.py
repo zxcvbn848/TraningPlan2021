@@ -56,7 +56,8 @@ def signin():
 @app.route("/member/")
 def member():
     if "user" in session:
-        name = session["user"]
+        username = session["username"]
+        name = selectUser(username = username)["name"]
         return render_template("member.html", name = name)
     else:
         return redirect(url_for("index"))
