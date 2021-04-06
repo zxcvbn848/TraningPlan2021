@@ -1,18 +1,13 @@
 
-let srcGET = "http://127.0.0.1:3000/api/users?username=";
-
 let textUsername = document.querySelector('.text.username');
-
 let displayData = "";
-
 let textContent = document.createTextNode(displayData);
 textUsername.appendChild(textContent);
 
 function searchData() {
-   const usernameElement = document.getElementsByName('username');
-   const username = usernameElement[0].value;
-   let srcData = srcGET + username;
-   fetch(srcData)
+   let username = document.getElementsByName('username')[0].value;
+   let srcGET = `http://127.0.0.1:3000/api/users?username=${username}`;
+   fetch(srcGET)
       .then(function(response) {
          return response.json();
       })
@@ -21,7 +16,6 @@ function searchData() {
 
          let userData = result["data"];
          // console.log(userData);
-         // console.log(typeof(userData));
 
          if (userData !== "null") {
             displayData = `${userData["name"]} (${userData["username"]})`;

@@ -94,9 +94,8 @@ def getUsers():
                 "name": usernameSelected["name"],
                 "username": usernameSelected["username"]
                 }
-            userData = { "data": data }            
-            return userData
-        return { "data": "null" }
+            return jsonify({ "data": data })
+        return jsonify({ "data": "null" })
     return redirect(url_for("index"))
 
 # POST 待修改
@@ -119,8 +118,8 @@ def getUsers():
 
 #             # r = requests.post(url, json = data, headers = headers)
             
-#             return jsonify({ "ok": True })
-#         return jsonify({ "error": True })
+#             return jsonify({ "ok": "true" })
+#         return jsonify({ "error": "true" })
 #     return redirect(url_for("index"))
 
 # =======================
