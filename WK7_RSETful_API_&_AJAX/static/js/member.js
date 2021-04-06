@@ -6,12 +6,12 @@ textUsername.appendChild(textContent);
 
 function searchData() {
    let username = document.getElementsByName('username')[0].value;
-   let srcGET = `http://127.0.0.1:3000/api/users?username=${username}`;
+   let srcGET = `http://127.0.0.1:3000/api/user?username=${username}`;
    fetch(srcGET)
-      .then(function(response) {
+      .then((response) => {
          return response.json();
       })
-      .then(function(result) {
+      .then((result) => {
          textUsername.childNodes[0].nodeValue = "";
 
          let userData = result["data"];
@@ -28,50 +28,49 @@ function searchData() {
       })
 }
 
-// let textName = document.querySelector('.text.name');
+let textName = document.querySelector('.text.name');
+let textWelcome = document.querySelector('.text.welcome');
 
-// let successOrNot = "";
+let successOrNot = "";
 
-// let textSuccess = document.createTextNode(successOrNot);
-// textUsername.appendChild(textSuccess);
+let textSuccess = document.createTextNode(successOrNot);
+textName.appendChild(textSuccess);
 
-// let srcPOST = "http://127.0.0.1:3000/api/user";
+function updateData() {
+   let name = document.getElementsByName('name')[0].value;
+   let srcPOST = `http://127.0.0.1:3000/api/user`;
+   fetch(srcPOST, {
+      method: 'POST',
+      headers: {
+         'Content-Type': 'application/json'
+      },
+      body: JSON.stringify({
+         "name": `${name}`
+      })
+   })
+      .then((response) => {
+         return response.json();
+      })
+      .then((result) => {
+         console.log(result);
 
-// function updateData() {
-//    const nameElement = document.getElementsByName('name');
-//    const name = nameElement[0].value;
-//    let srcData = srcPOST + name;
-//    fetch(srcData)
-//       .then(function(response) {
-//          return response.json();
-//       })
-//       .then(function(result) {
-//          text.childNodes[0].nodeValue = "";
+         textName.childNodes[0].nodeValue = "";
 
-//          let userData = result["data"];
+         let updateSuccess = result["ok"];
+         let updateFailed = result["error"];
+         // console.log(updateSuccess);
+         // console.log(updateFailed);
 
-//          if (userData !== "null") {
-//             successOrNot = '更新成功';
-//          }
-//          else {
-//             successOrNot = '更新失敗';
-//          }
+         if (updateSuccess === "true") {
+            successOrNot = '更新成功';
+         }
+         if (updateFailed === "true") {
+            successOrNot = '更新失敗';
+         }
 
-//          text.childNodes[0].nodeValue = successOrNot;
-//       })
-// }
-
-// ===================
-// Another Failed Method:
-         // let text = document.querySelector('.text.username');
-         // let initialText = '';
-         // let initialTextContent = document.createTextNode(initialText);
-         // text.appendChild(initialTextContent);
-
-         // let oldTextContent = text.childNodes[0];
-         // let newTextContent = document.createTextNode(displayData);
-         // text.appendChild(newTextContent);
-         // text.replaceChild(newTextContent, oldTextContent);
-         // text.replaceChild(newTextContent, initialTextContent);
-
-
+         textName.childNodes[0].nodeValue = successOrNot;
+         textWelcome.childNodes[0].nodeValue = `${name}，歡迎登入系統`;
+      }).catch((err) => {
+         console.log('錯誤', err);
+      })
+}

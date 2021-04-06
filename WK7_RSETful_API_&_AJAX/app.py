@@ -58,13 +58,6 @@ def member():
     if "user" in session:
         name = session["user"]
         return render_template("member.html", name = name)
-    # elif "user" in session and "data" in session:
-    #     name = session["user"]
-
-    #     data = session["data"]
-    #     nameData = (data["name"] or "Unknown")
-    #     usernameData = (data["username"] or "Unknown")
-    #     return redirect(url_for("member", name = name, nameData = nameData, usernameData = usernameData))
     else:
         return redirect(url_for("index"))
 
@@ -81,7 +74,8 @@ def signout():
     session.pop("user", None)
     return redirect(url_for("index"))
 
-@app.route("/api/users", methods=["GET"])
+# /api/users issue!
+@app.route("/api/user", methods=["GET"])
 def getUsers():
     if "user" in session:
         username = request.args["username"]
@@ -98,29 +92,21 @@ def getUsers():
         return jsonify({ "data": "null" })
     return redirect(url_for("index"))
 
-# POST 待修改
-# @app.route("/api/user", methods=["POST"])
-# def postUser():
-#     if "user" in session:
-#         name = request.form["name"]
-#         username = session["username"]
+# POST 
+@app.route("/api/user", methods=["POST"])
+def postUser():
+    if "user" in session:
+        name = request.get_json()["name"]
+        username = session["username"]
         
-#         updateUser(name = name, username = username)
+        updateUser(name, username)
 
-#         userInfo = selectUser(username = username)
+        userInfo = selectUser(username = username)
         
-#         # TBM
-#         if userInfo:
-#             data = {
-#                 "name": userInfo["name"],
-#                 }
-#             headers = {'Content-type': 'application/json; charset=utf-8'}
-
-#             # r = requests.post(url, json = data, headers = headers)
-            
-#             return jsonify({ "ok": "true" })
-#         return jsonify({ "error": "true" })
-#     return redirect(url_for("index"))
+        if name == userInfo["name"]:
+            return jsonify({ "ok": "true" })
+        return jsonify({ "error": "true" })
+    return redirect(url_for("index"))
 
 # =======================
 # 以下為自訂的額外路徑(可略)

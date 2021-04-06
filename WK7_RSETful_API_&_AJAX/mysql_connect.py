@@ -53,14 +53,9 @@ def insertUser(**kwargs):
 
     websiteDB.commit()
 
-def updateUser(**kwargs):
-    updateName = kwargs["name"] 
-    selectUsername = kwargs["username"]
-
-    updateColumn = f"name = { updateName }"
-
+def updateUser(name, username):
     sql_cmd = f"""
-            UPDATE user SET { updateColumn } WHERE username = { selectUsername }
+            UPDATE user SET name = '{ name }' WHERE username = '{ username }'
             """ 
 
     webCursor.execute(sql_cmd)
