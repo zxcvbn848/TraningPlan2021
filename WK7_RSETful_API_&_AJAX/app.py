@@ -1,8 +1,8 @@
 
 from flask import Flask, request, render_template, redirect, session, url_for, jsonify
 from datetime import timedelta
-from mysql_connect import selectUser, insertUser
-import os
+from mysql_connect import selectUser, insertUser, updateUser
+import json, requests, os
 
 app = Flask(__name__, static_folder="static", static_url_path="/static")
 
@@ -47,6 +47,7 @@ def signin():
 
     if signinUser:
         session["user"] = signinUser["name"]
+        session["username"] = signinUser["username"]
         return redirect(url_for("member"))
     else:
         message = "帳號或密碼錯誤"
@@ -80,7 +81,7 @@ def signout():
     session.pop("user", None)
     return redirect(url_for("index"))
 
-@app.route("/api/users/", methods=["GET"])
+@app.route("/api/users", methods=["GET"])
 def getUsers():
     if "user" in session:
         username = request.args["username"]
@@ -93,11 +94,34 @@ def getUsers():
                 "name": usernameSelected["name"],
                 "username": usernameSelected["username"]
                 }
-            userData = { "data": data }
-            # session["data"] = data
-            return jsonify(userData)
-        return jsonify({ "data": "null" })
+            userData = { "data": data }            
+            return userData
+        return { "data": "null" }
     return redirect(url_for("index"))
+
+# POST 待修改
+# @app.route("/api/user", methods=["POST"])
+# def postUser():
+#     if "user" in session:
+#         name = request.form["name"]
+#         username = session["username"]
+        
+#         updateUser(name = name, username = username)
+
+#         userInfo = selectUser(username = username)
+        
+#         # TBM
+#         if userInfo:
+#             data = {
+#                 "name": userInfo["name"],
+#                 }
+#             headers = {'Content-type': 'application/json; charset=utf-8'}
+
+#             # r = requests.post(url, json = data, headers = headers)
+            
+#             return jsonify({ "ok": True })
+#         return jsonify({ "error": True })
+#     return redirect(url_for("index"))
 
 # =======================
 # 以下為自訂的額外路徑(可略)

@@ -99,6 +99,17 @@ button{
     background-color: hsl(197, 100%, 90%);
 }
 
+.text.name {
+    display: block;
+    width: 50%;
+    height: auto;
+    position: relative; left: 50%; transform: translate(-50%);
+    font-size: 40px; text-align: center;
+    border-radius: 5px;
+    padding: 0px;
+    background-color: hsl(197, 100%, 90%);
+}
+
 .href{
     width: 500px;
     max-width: 50%;

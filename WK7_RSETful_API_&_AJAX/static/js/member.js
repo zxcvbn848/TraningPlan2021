@@ -1,27 +1,27 @@
 
-let src = "http://127.0.0.1:3000/api/users?username=";
+let srcGET = "http://127.0.0.1:3000/api/users?username=";
 
-let text = document.querySelector('.text.username');
+let textUsername = document.querySelector('.text.username');
 
 let displayData = "";
 
-let newTextContent = document.createTextNode(displayData);
-text.appendChild(newTextContent);
+let textContent = document.createTextNode(displayData);
+textUsername.appendChild(textContent);
 
 function searchData() {
    const usernameElement = document.getElementsByName('username');
    const username = usernameElement[0].value;
-   let srcData = src + username;
+   let srcData = srcGET + username;
    fetch(srcData)
       .then(function(response) {
          return response.json();
       })
       .then(function(result) {
-         text.childNodes[0].nodeValue = "";
+         textUsername.childNodes[0].nodeValue = "";
 
          let userData = result["data"];
-         console.log(userData);
-         console.log(typeof(userData));
+         // console.log(userData);
+         // console.log(typeof(userData));
 
          if (userData !== "null") {
             displayData = `${userData["name"]} (${userData["username"]})`;
@@ -30,9 +30,42 @@ function searchData() {
             displayData = '查詢不到資料';
          }
 
-         text.childNodes[0].nodeValue = displayData;
+         textUsername.childNodes[0].nodeValue = displayData;
       })
 }
+
+// let textName = document.querySelector('.text.name');
+
+// let successOrNot = "";
+
+// let textSuccess = document.createTextNode(successOrNot);
+// textUsername.appendChild(textSuccess);
+
+// let srcPOST = "http://127.0.0.1:3000/api/user";
+
+// function updateData() {
+//    const nameElement = document.getElementsByName('name');
+//    const name = nameElement[0].value;
+//    let srcData = srcPOST + name;
+//    fetch(srcData)
+//       .then(function(response) {
+//          return response.json();
+//       })
+//       .then(function(result) {
+//          text.childNodes[0].nodeValue = "";
+
+//          let userData = result["data"];
+
+//          if (userData !== "null") {
+//             successOrNot = '更新成功';
+//          }
+//          else {
+//             successOrNot = '更新失敗';
+//          }
+
+//          text.childNodes[0].nodeValue = successOrNot;
+//       })
+// }
 
 // ===================
 // Another Failed Method:
