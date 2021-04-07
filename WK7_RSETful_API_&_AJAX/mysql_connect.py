@@ -1,11 +1,15 @@
 
 import mysql.connector
+from dotenv import load_dotenv
+import os
+
+load_dotenv()
 
 websiteDB = mysql.connector.connect(
-    host = "localhost",
+    host = os.getenv("SERVER_HOST"),
     port = 3306,
-    user = "root",
-    password = "ZackAndy167817?",
+    user = os.getenv("SERVER_USER"),
+    password = os.getenv("SERVER_PASSWORD"),
     database = "website",
     charset = "utf8"
 )
