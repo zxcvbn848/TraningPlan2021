@@ -90,11 +90,11 @@ def getUsers():
                 "username": usernameSelected["username"]
                 }
             return jsonify({ "data": data })
-        return jsonify({ "data": "null" })
+        return jsonify({ "data": None })
     return redirect(url_for("index"))
 
 # POST 
-@app.route("/api/user", methods=["POST"])
+@app.route("/api/user", methods=["POST", "GET"])
 def postUser():
     if "user" in session:
         name = request.get_json()["name"]
@@ -105,8 +105,8 @@ def postUser():
         userInfo = selectUser(username = username)
         
         if name == userInfo["name"]:
-            return jsonify({ "ok": "true" })
-        return jsonify({ "error": "true" })
+            return jsonify({ "ok": True })
+        return jsonify({ "error": True })
     return redirect(url_for("index"))
 
 # =======================

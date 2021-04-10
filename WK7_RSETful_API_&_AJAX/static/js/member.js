@@ -12,12 +12,10 @@ function searchData() {
          return response.json();
       })
       .then((result) => {
-         // textUsername.childNodes[0].nodeValue = "";
-
          let userData = result["data"];
-         // console.log(userData);
+         console.log(typeof(userData));
 
-         if (userData !== "null") {
+         if (userData !== null) {
             displayData = `${userData["name"]} (${userData["username"]})`;
          }
          else {
@@ -52,20 +50,16 @@ function updateData() {
          return response.json();
       })
       .then((result) => {
-         console.log(result);
-
-         // textName.childNodes[0].nodeValue = "";
-
          let updateSuccess = result["ok"];
          let updateFailed = result["error"];
-         // console.log(updateSuccess);
+         // console.log(typeof(updateSuccess));
          // console.log(updateFailed);
 
-         if (updateSuccess === "true") {
+         if (updateSuccess === true) {
             successOrNot = '更新成功';
             textWelcome.childNodes[0].nodeValue = `${name}，歡迎登入系統`;
          }
-         if (updateFailed === "true") {
+         if (updateFailed === true) {
             successOrNot = '更新失敗';
          }
 
