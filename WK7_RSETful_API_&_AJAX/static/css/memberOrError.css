@@ -47,7 +47,7 @@ body{
     background-color: hsl(197, 100%, 90%);
 }
 
-form{
+.form{
     display: flex; flex-wrap: wrap; 
     justify-content: center; align-items: stretch;
     width: 600px; 
@@ -90,7 +90,7 @@ button{
 
 .text.username, .text.name {
     display: block;
-    width: 50%;
+    width: 600px;
     height: auto;
     position: relative; left: 50%; transform: translate(-50%);
     font-size: 40px; text-align: center;

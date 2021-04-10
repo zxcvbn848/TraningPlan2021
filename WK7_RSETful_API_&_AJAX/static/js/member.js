@@ -6,7 +6,7 @@ textUsername.appendChild(textContent);
 
 function searchData() {
    let username = document.getElementsByName('username')[0].value;
-   let srcGET = `http://127.0.0.1:3000/api/user?username=${username}`;
+   let srcGET = `http://127.0.0.1:3000/api/users?username=${username}`;
    fetch(srcGET)
       .then((response) => {
          return response.json();

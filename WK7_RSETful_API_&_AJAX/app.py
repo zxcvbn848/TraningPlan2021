@@ -76,7 +76,7 @@ def signout():
     return redirect(url_for("index"))
 
 # /api/users issue!
-@app.route("/api/user", methods=["GET"])
+@app.route("/api/users", methods=["GET"])
 def getUsers():
     if "user" in session:
         username = request.args["username"]
