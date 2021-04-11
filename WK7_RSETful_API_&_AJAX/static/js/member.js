@@ -1,12 +1,29 @@
 
-let textUsername = document.querySelector('.text.username');
+const searchInput = document.getElementById('searchInput');
+const updateInput = document.getElementById('updateInput');
+
+searchInput.addEventListener('keyup', event => {
+   if (event.code === 'Enter') {
+      event.preventDefault();
+      document.getElementById('searchButton').click();
+   }
+})
+
+updateInput.addEventListener('keyup', event => {
+   if (event.code === 'Enter') {
+      event.preventDefault();
+      document.getElementById('updateButton').click();
+   }
+})
+
+const textUsername = document.querySelector('.text.username');
 let displayData = "";
-let textContent = document.createTextNode(displayData);
+const textContent = document.createTextNode(displayData);
 textUsername.appendChild(textContent);
 
 function searchData() {
    let username = document.getElementsByName('username')[0].value;
-   let srcGET = `http://127.0.0.1:3000/api/users?username=${username}`;
+   const srcGET = `http://127.0.0.1:3000/api/users?username=${username}`;
    fetch(srcGET)
       .then((response) => {
          return response.json();
@@ -26,17 +43,17 @@ function searchData() {
       })
 }
 
-let textName = document.querySelector('.text.name');
-let textWelcome = document.querySelector('.text.welcome');
+const textName = document.querySelector('.text.name');
+const textWelcome = document.querySelector('.text.welcome');
 
 let successOrNot = "";
 
-let textSuccess = document.createTextNode(successOrNot);
+const textSuccess = document.createTextNode(successOrNot);
 textName.appendChild(textSuccess);
 
 function updateData() {
    let name = document.getElementsByName('name')[0].value;
-   let srcPOST = `http://127.0.0.1:3000/api/user`;
+   const srcPOST = `http://127.0.0.1:3000/api/user`;
    fetch(srcPOST, {
       method: 'POST',
       headers: {
@@ -50,8 +67,8 @@ function updateData() {
          return response.json();
       })
       .then((result) => {
-         let updateSuccess = result["ok"];
-         let updateFailed = result["error"];
+         const updateSuccess = result["ok"];
+         const updateFailed = result["error"];
          // console.log(typeof(updateSuccess));
          // console.log(updateFailed);
 
