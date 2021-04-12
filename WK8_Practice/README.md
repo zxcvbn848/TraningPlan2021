@@ -1,4 +1,4 @@
-# 主題三
+# 主題二
 
 # 因為無論登入或註冊時主要都是以 username 作為 SELECT 時的欄位，故設定 username 為 Secondary Index
 ![image](https://github.com/zxcvbn848/TraningPlan2021/blob/main/WK8_Practice/index_username.jpg)
