@@ -1,0 +1,76 @@
+
+{% extends 'base.html' %}
+
+{% block title %}Member{% endblock %}
+
+{% block static %}
+<!-- <link href="{{ url_for('static', filename='css/memberOrError.css') }}" rel="stylesheet" type="text/css" media="all">
+<script src="{{ url_for('static', filename='js/member.js') }}"></script> -->
+<link href="../static/css/memberOrError.css" rel="stylesheet" type="text/css" media="all">
+<script defer src="../static/js/member.js"></script>
+{% endblock %}
+
+{% block content %}
+<div class="title">
+    <div class="text">歡迎光臨，這是會員頁</div>
+</div>
+<div class="message">
+    <div class="text welcome">{{ name }}，歡迎登入系統</div>
+</div>
+<hr>
+<div class="form">
+    <div class="form-content">
+        <div class="search">
+            <div class="text">
+                查詢會員姓名
+            </div>
+        </div>
+        <div class="form-items">
+            <input type="text" name="username" id="searchInput" placeholder="請輸入查詢的姓名" value="" required/>
+            <button id="searchButton" onclick="searchData();">查詢</button>
+        </div>
+    </div>
+</div>
+<!-- 跳轉至 ~/api/~ 看資料用的 -->
+<!-- <form action="{{url_for('getUsers')}}" method="GET">
+    <div class="form-content">
+        <div class="search">
+            <div class="text">
+                查詢會員姓名
+            </div>
+        </div>
+        <div class="form-items">
+            <input type="text" name="username" placeholder="請輸入查詢的姓名"/>
+            <button onclick="searchData();">查詢</button>
+        </div>
+    </div>
+</form> -->
+<div class="text username"></div>
+<hr>
+<div class="form">
+    <div class="form-content">
+        <div class="search">
+            <div class="text">
+                更新我的姓名
+            </div>
+        </div>
+        <div class="form-items">
+            <input type="text" name="name" id="updateInput" placeholder="請輸入欲更新的姓名" value="" required/>
+            <button id="updateButton" onclick="updateData();" >更新</button>
+        </div>
+    </div>
+</div>
+<div class="text name"></div>
+<hr>
+<div class="href">
+    <div class="text">Go to</div>
+    <input type="button" onclick="location.href='/modal'" value="Modal"/>
+    <input type="button" onclick="location.href='/select'" value="Select"/>
+    <input type="button" onclick="location.href='/textAdventure'" value="Text Adve."/>
+    <input type="button" onclick="location.href='/boxShadowGUI'" value="GUI"/>
+</div>
+<hr/>
+<div class="href">
+    <a href="/signout" method="GET">登出系統</a>
+</div>
+{% endblock %}

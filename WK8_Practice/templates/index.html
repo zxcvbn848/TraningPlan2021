@@ -1,0 +1,59 @@
+
+{% extends 'base.html' %}
+
+{% block title %}Member Verification{% endblock %}
+
+{% block static %}
+<!-- <link href="{{ url_for('static', filename='css/index.css') }}" rel="stylesheet" type="text/css" media="all"> -->
+<link href="../static/css/index.css" rel="stylesheet" type="text/css" media="all">
+<script defer src="../static/js/index.js"></script>
+{% endblock %}
+
+{% block content %}
+<div class="title">
+    <div class="text">歡迎光臨，請註冊登入系統</div>
+</div>
+<form action="{{ url_for('checkSignup') }}" method="POST">
+    <div class="form-content">
+        <div class="login">
+            <div class="text">
+                註冊系統
+            </div>
+        </div>
+        <div class="form-title">
+            <div class="alignRight">
+                <label for="name">姓名</label><br/>
+                <label for="usernameSignup">帳號</label><br/>
+                <label for="passwordSignup">密碼</label><br/>
+            </div>
+        </div>
+        <div class="form-items">
+            <input type="text" name="name" id="name" placeholder="請輸入註冊姓名" value="" required/><br/>
+            <input type="text" name="username" id="usernameSignup" placeholder="請輸入註冊帳號" value="" required/><br/>
+            <input type="password" name="password" id="passwordSignup" placeholder="請輸入註冊密碼" value="" required/><br/>
+        </div>
+    </div>
+    <button type="submit">註冊</button>
+</form>
+<form action="{{ url_for('signin') }}" method="POST">
+    <div class="form-content">
+        <div class="login">
+            <div class="text">
+                登入系統
+            </div>
+        </div>
+        <div class="form-title">
+            <div class="alignRight">
+                <label for="usernameSignin">帳號</label><br/>
+                <label for="passwordSignin">密碼</label><br/>
+            </div>
+        </div>
+        <div class="form-items">
+            <input type="text" name="username" id="usernameSignin" placeholder="請輸入帳號" value="" required/><br/>
+            <input type="password" name="password" id="passwordSignin" placeholder="請輸入密碼" value="" required/><br/>
+        </div>
+    </div>
+    <button type="submit">登入</button>
+</form>
+{% endblock %}
+
