@@ -22,7 +22,8 @@ def checkSignup():
     password = request.form["password"]
 
     if (username == "" or name == "" or password == ""):
-        return
+        message = "姓名、帳號或密碼皆不得為空"
+        return redirect(url_for("error", message = message))
 
     signupUser = selectUser(username = username)
 
@@ -39,7 +40,8 @@ def signin():
     password = request.form["password"]
 
     if (username == "" or password == ""):
-        return
+        message = "帳號或密碼皆不得為空"
+        return redirect(url_for("error", message = message))
 
     signinUser = selectUser(username = username, password = password)
 
@@ -79,7 +81,7 @@ def getUsers():
     if "user" in session:
         username = request.args["username"]
 
-        if (username == ""):
+        if username == "":
             return jsonify({ "data": None })
         
         usernameSelected = selectUser(username = username)
@@ -100,7 +102,7 @@ def postUser():
     if "user" in session:
         name = request.get_json()["name"]
         
-        if (name == ""):
+        if name == "":
             return jsonify({ "error": True })
 
         username = session["username"]
